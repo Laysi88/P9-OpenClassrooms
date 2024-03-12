@@ -1,0 +1,129 @@
+header {
+    display: flex;
+    height: 50px;
+    width: 100%;
+    box-shadow: 2px 0px 7px 0px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    text-decoration: none;
+    color: black;
+    font-size: 1.5em;
+    margin: auto;
+}
+
+.button {
+    position: relative;
+    display: inline-block;
+    transition: 0.5s;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 35px;
+    font-size: 1.2em;
+    overflow: hidden;
+    line-height: 35px;
+    border-radius: 0.3em;
+    border: 1px solid #444444;
+    text-align: center;
+    margin-top: 10px;
+    background-color: #b3b3b3;
+
+}
+
+
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.create_user,
+.login {
+    flex: 1;
+    margin-top: 20%;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    align-self: center;
+}
+
+.text {
+    margin-bottom: 10px;
+    text-align: center;
+    align-self: center;
+    font-size: 1.5em;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: blue;
+}
+
+form {
+    width: 100%;
+}
+
+form input[type="text"],
+form input[type="password"] {
+    width: 75%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+form :focus {
+    outline: 2px solid #007BFF;
+    outline-offset: 2px;
+}
+
+.custom-button {
+    position: relative;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 35px;
+    font-size: 1.2em;
+    overflow: hidden;
+    line-height: 35px;
+    border-radius: 0.3em;
+    border: 1px solid black;
+    color: black;
+    text-align: center;
+    margin-top: 10px;
+    background-color: #b3b3b3;
+    ;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+
+.custom-button:active {
+    background-color: black;
+    color: white;
+
+}
+
+.custom-button:focus {
+    outline: 2px solid #007BFF;
+    outline-offset: 2px;
+}
+
+.create-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}

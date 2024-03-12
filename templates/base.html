@@ -1,0 +1,36 @@
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<title>
+    {% block title %}
+    {{ app_name }}
+    {% endblock title %}
+</title>
+
+<header>
+    <h1>
+{% block header %}
+    {% block AppName %}
+    {{ page_name }}
+    {% endblock AppName %}
+</h1>
+</header>
+{% endblock header %}
+
+{% block nav %}
+<form action="{% url 'logout' %}" method="post">
+    {% csrf_token %}
+    <button type="submit">Déconnexion</button>
+</form>
+{% endblock nav %}
+
+{% block sidebar %}
+{% endblock sidebar %} 
+
+{% block content %}
+{% endblock content %}
