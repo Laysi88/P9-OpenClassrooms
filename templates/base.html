@@ -22,15 +22,15 @@
 </header>
 {% endblock header %}
 
+<nav>
+    <div class="nav-items">
 {% block nav %}
-<form action="{% url 'logout' %}" method="post">
-    {% csrf_token %}
-    <button type="submit">Déconnexion</button>
-</form>
+<a href="{% url 'home' %}">Accueil</a>
+<a href="{% url 'ticket_create' %}">Créer un ticker</a>
+<a href="{% url 'logout' %}">Déconnexion</a>
+    </div>
+</nav>
 {% endblock nav %}
-
-{% block sidebar %}
-{% endblock sidebar %} 
 
 {% block content %}
 {% endblock content %}

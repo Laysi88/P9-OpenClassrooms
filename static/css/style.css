@@ -5,6 +5,38 @@ header {
     box-shadow: 2px 0px 7px 0px rgba(0, 0, 0, 0.3);
 }
 
+nav {
+    display: flex;
+    width: 100%;
+    height: 50px;
+    background-color: #f8f9fa;
+}
+
+.nav-items {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-items a {
+    text-decoration: none;
+    color: black;
+    padding: 0 10px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.nav-items a:hover {
+    background-color: #ddd
+}
+
 h1 {
     text-decoration: none;
     color: black;
@@ -60,10 +92,13 @@ h1 {
 a {
     text-decoration: none;
     color: black;
+    white-space: nowrap;
 }
 
 a:hover {
     color: blue;
+    text-decoration: underline;
+    text-underline-offset: 1.5px;
 }
 
 form {
@@ -71,16 +106,26 @@ form {
 }
 
 form input[type="text"],
-form input[type="password"] {
+form input[type="password"],
+form input[type="file"],
+form textarea {
     width: 75%;
     padding: 10px;
     margin-bottom: 10px;
     box-sizing: border-box;
+    margin-top: 30px;
+
+
 }
 
 form :focus {
     outline: 2px solid #007BFF;
-    outline-offset: 2px;
+}
+
+form label {
+    font-size: 1.5em;
+    position: absolute;
+    margin-left: 10px;
 }
 
 .custom-button {
@@ -126,4 +171,14 @@ form :focus {
     justify-content: center;
     height: 100vh;
     margin: 0;
+}
+
+.row {
+    display: flex;
+    gap: 5px;
+    margin: 5px 0 5px 0;
+}
+
+.right {
+    justify-content: flex-end;
 }

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "LITReview",
+    "Ticket",
 ]
 
 MIDDLEWARE = [
@@ -108,7 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "FR-fr"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Europe/Paris"
 
 USE_I18N = True
 
@@ -131,5 +132,9 @@ STATICFILES_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesSto
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 AUTH_USER_MODEL = "CustomUser.CustomUser"
+
 LOGIN_URL = "login"
 LOGIN_REDIRECT_URL = "home"
+
+MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_URL = "/media/"
