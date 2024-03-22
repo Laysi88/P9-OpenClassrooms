@@ -27,4 +27,13 @@ class UserFollowsForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
 
         if user:
-            self.fields["followed_user"].queryset = CustomUser.objects.exclude(pk=user.pk)
+            followed_users = UserFollows.objects.filter(user=user).values_list("followed_user", flat=True)
+            queryset = CustomUser.objects.exclude(pk=user.pk)
+            if followed_users:
+                # Si l'utilisateur suit déjà d'autres utilisateurs, incluez une option pour les supprimer
+                queryset = queryset.exclude(pk__in=followed_users)
+                self.fields["followed_user"].widget.attrs["class"] = "form-control"
+                self.fields["followed_user"].widget.attrs[
+                    "placeholder"
+                ] = "Choisir un utilisateur à suivre ou arrêter de suivre"
+            self.fields["followed_user"].queryset = queryset

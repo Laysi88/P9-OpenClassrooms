@@ -33,7 +33,15 @@ class UserFollowsView(CreateView):
         return kwargs
 
     def form_valid(self, form):
-        form.instance.user = self.request.user
+        user = self.request.user
+        followed_user = form.cleaned_data["followed_user"]
+
+        existing_follow = UserFollows.objects.filter(user=user, followed_user=followed_user).exists()
+        if existing_follow:
+            UserFollows.objects.filter(user=user, followed_user=followed_user).delete()
+        else:
+            form.instance.user = user
+            form.save()
         return super().form_valid(form)
 
     def get_context_data(self, **kwargs):
