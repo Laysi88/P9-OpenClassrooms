@@ -9,8 +9,8 @@ class Home(CustomLoginRequired, TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         # General parameter of the page
-        context["app_name"] = "Home"
-        context["page_name"] = "Page d'accueil"
+        context["app_name"] = "Flux"
+        context["page_name"] = "LitReview"
         context["back_url"] = reverse_lazy("home")
 
         return context

@@ -70,6 +70,13 @@ h1 {
     align-items: center;
 }
 
+.container-critique {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
 .create_user,
 .login {
     flex: 1;
@@ -103,6 +110,12 @@ a:hover {
 
 form {
     width: 100%;
+}
+
+form input[type="radio"] {
+    margin-top: 25px;
+    margin-right: 5px;
+    margin-left: 10px;
 }
 
 form input[type="text"],
@@ -181,4 +194,14 @@ form label {
 
 .right {
     justify-content: flex-end;
+}
+
+.ticket {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    border: #444444 1px solid;
 }

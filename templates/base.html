@@ -25,9 +25,10 @@
 <nav>
     <div class="nav-items">
 {% block nav %}
-<a href="{% url 'home' %}">Accueil</a>
+<a href="{% url 'home' %}">Flux</a>
 <a href="{% url 'myposts' %}">Posts</a>
-<a href="{% url 'logout' %}">Déconnexion</a>
+<a href="">Abonnements</a>
+<a href="{% url 'logout' %}">Se déconnecter</a>
     </div>
 </nav>
 {% endblock nav %}
