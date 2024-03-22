@@ -15,7 +15,8 @@
 
 <body>
    <div class="create-form">
-        <form class= method="post">
+
+        <form class="form" method="post">
             {% csrf_token %}
             <div class="text">Inscrivez-vous</div>
             <div class="text">
@@ -33,7 +34,7 @@
                 <div class="center">{{ form.password2.errors }}</div>
             </div>
             <div class="button-container">
-                <div><button class="custom-button" type="submit">Valider</button></div>   
+                <button class="button" type="submit">S'inscrire</button> 
             </div> 
         </form>
     </div>
