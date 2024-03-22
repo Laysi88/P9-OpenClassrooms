@@ -1,9 +1,11 @@
 from django.urls import reverse_lazy
 from django.contrib.auth import logout
 from django.shortcuts import render
+from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from django.views.generic.edit import CreateView
-from .forms import CustomUserCreationForm
+from .forms import CustomUserCreationForm, UserFollowsForm
+from .models import UserFollows
 
 
 class SignUpView(CreateView):
@@ -16,3 +18,25 @@ class SignUpView(CreateView):
 def user_logout(request):
     logout(request)
     return render(request, "registration/logged_out.html", {})
+
+
+@method_decorator(login_required, name="dispatch")
+class UserFollowsView(CreateView):
+    form_class = UserFollowsForm
+    model = UserFollows
+    template_name = "UserAccount/follows.html"
+    success_url = reverse_lazy("follows")
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs["user"] = self.request.user
+        return kwargs
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["follows"] = UserFollows.objects.filter(user=self.request.user)
+        return context

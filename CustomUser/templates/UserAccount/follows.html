@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="row center">
+    <h2>Suivre d'autres utilisateur</h2>
+</div>
+
+
+<form class="form" method="post">
+    {% csrf_token %}
+    <div class="row">
+        {{ form.followed_user }}{{ form.error.followed_user }}
+    </div>
+    <div class="row center"><input type="submit" value="Envoyer" class="button"></div>
+
+</form>
+
+{% endblock content %}
