@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div>
+    <form class="form" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p>Vous êtes sur le point de supprimer le ticket suivant : </p>
+        <p>Titre : {{ ticket.title }}</p>
+        <p>Description : {{ ticket.description }}</p>
+        <p> Etes vous sûr de vouloir supprimer ce ticket ? </p>
+        <div class="row right">
+            <input type="submit" value="{{ submit}}" class="button">
+        </div>
+    </form>
+</div>
+{% endblock content %}

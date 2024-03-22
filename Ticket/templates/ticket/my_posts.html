@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<a class="custom-button" href="{% url 'ticket_create' %}">Créer un ticker</a>
+
+{% for ticket in tickets %}
+<div class="ticket">
+    <h2>{{ ticket.title }}</h2>
+    <p>{{ ticket.description }}</p>
+    <img src="{{ ticket.image.url }}" alt="image">
+    <p>{{ ticket.time_created }}</p>
+    <div class="edit">
+        <a href="{% url 'ticket_update' ticket.id %}">Edit</a>
+        <a href="{% url 'ticket_delete' ticket.id %}">Delete</a>
+{% endfor %}
+{% endblock %}
