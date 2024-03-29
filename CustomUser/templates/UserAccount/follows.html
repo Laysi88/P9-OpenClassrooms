@@ -18,19 +18,39 @@
 <div class="row center">
     <h2>Abonnements</h2>
 </div>
-{% for user in follows %}
-<div class="row">
-{{ user.followed_user }} <a href="{% url 'unfollow' user.id %}">Se désabonner</a>
-</div>
-{% endfor %}
+<table class="table_layout">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Désabonnement</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in follows %}
+        <tr>
+            <td class="user">{{ user.followed_user }}</td>
+            <td class="align_center"><a href="{% url 'unfollow' user.id %}">Se désabonner</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 
 <div class="row center">
     <h2>Abonnés</h2>
 </div>
-{% for user in followed_by %}
-<div class="row">
-{{ user.user}}
-</div>
-{% endfor %}
+<table class="table_layout">
+    <thead>
+        <tr>
+            <th>Nom</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in followed_by %}
+        <tr>
+            <td>{{ user.user }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 
 {% endblock content %}
