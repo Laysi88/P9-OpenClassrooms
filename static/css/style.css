@@ -246,3 +246,7 @@ form label {
     text-align: center;
     font-weight: bold;
 }
+
+.image {
+    max-width: 800px;
+}

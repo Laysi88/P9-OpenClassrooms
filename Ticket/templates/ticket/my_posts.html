@@ -9,11 +9,13 @@
     <div class="row">
         <p>Vous avez publié un ticket le {{ ticket.time_created }} </p>
     </div>
+
     <h2>{{ ticket.title }}</h2>
     <p>{{ ticket.description }}</p>
     {% if ticket.image %}
-    <img src="{{ ticket.image.url }}" alt="image">
+    <img class="image" src="{{ ticket.image.url }}" alt="image">
     {% endif %}
+
     <div >
         <a class="custom-button" href="{% url 'ticket_update' ticket.id %}">Modifier</a>
         <a class="custom-button" href="{% url 'ticket_delete' ticket.id %}">Supprimer</a>
@@ -29,12 +31,14 @@
     <h2>{{ review.headline }}</h2>
     <p>{{ review.body }}</p>
     <p>Note : {{ review.rating }}</p>
+    <div class="ticket">
     <p>Publié pour le ticket : {{ review.ticket.title }}</p>
     <p>Publié par : Vous</p>
     <p>Description : {{review.ticket.description}}</p>
     {% if review.ticket.image %}
-    <img src="{{ review.ticket.image.url }}" alt="image">
+    <img class="image" src="{{ review.ticket.image.url }}" alt="image">
     {% endif %}
+    </div>
     <div >
         <a class="custom-button" href="{% url 'review_update' review.id %}">Modifier</a>
         <a class="custom-button" href="{% url 'review_delete' review.id %}">Supprimer</a>
