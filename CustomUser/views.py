@@ -3,7 +3,7 @@ from django.contrib.auth import logout
 from django.shortcuts import render
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
-from django.views.generic.edit import CreateView
+from django.views.generic import CreateView, RedirectView
 from .forms import CustomUserCreationForm, UserFollowsForm
 from .models import UserFollows
 
@@ -47,4 +47,16 @@ class UserFollowsView(CreateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["follows"] = UserFollows.objects.filter(user=self.request.user)
+        context["followed_by"] = UserFollows.objects.filter(followed_user=self.request.user)
+        context["app_name"] = "Abonnements"
+        context["page_name"] = "Gérer vos abonnements"
         return context
+
+
+@method_decorator(login_required, name="dispatch")
+class UnfollowView(RedirectView):
+
+    def get_redirect_url(self, *args, **kwargs):
+        id = self.kwargs["pk"]
+        UserFollows.objects.filter(id=id).delete()
+        return reverse_lazy("follows")

@@ -13,7 +13,24 @@
         {{ form.followed_user }}{{ form.error.followed_user }}
     </div>
     <div class="row center"><input type="submit" value="Envoyer" class="button"></div>
-
 </form>
+
+<div class="row center">
+    <h2>Abonnements</h2>
+</div>
+{% for user in follows %}
+<div class="row">
+{{ user.followed_user }} <a href="{% url 'unfollow' user.id %}">Se désabonner</a>
+</div>
+{% endfor %}
+
+<div class="row center">
+    <h2>Abonnés</h2>
+</div>
+{% for user in followed_by %}
+<div class="row">
+{{ user.user}}
+</div>
+{% endfor %}
 
 {% endblock content %}
