@@ -10,25 +10,27 @@
 </div>
 
 
-{% for ticket in tickets and reviews %}
-<div class="ticket">
-<p>{{ ticket.user }} a demandé une critique le {{ticket.time_created}}</p>
-<p>{{ ticket.title }}</p>
-<p>{{ ticket.description }}</p>
-{% if ticket.image %}
-<img class="image" src="{{ ticket.image.url }}" alt="image">
-{% endif %}
-
-</div>
+{% for post in posts %}
+    {% if post.content_type == 'ticket' %}
+        <div class="ticket">
+            {% if post.user == request.user %}
+                <p>Vous avez créé une demande de critique le {{post.time_created}}</p>
+            {% else %}
+            <p>{{ post.user }} a créé une demande de critique le {{post.time_created}}</p>
+            {% endif %}
+                <h2>{{ post.title }}</h2>
+                <p>{{ post.description }}</p>
+                {% if post.image %}
+                    <img class="image" src="{{ post.image.url }}" alt="image">
+                {% endif %}
+            </div>
+    {% endif %}
+    {%if post.content_type == 'review' %}
+        <div class="ticket">
+            <p>{{ post.user }} a créé une critique le {{post.time_created}}</p>
+            <h2>{{ post.headline }}</h2>
+            </div>
+    {% endif %}
 {% endfor %}
-
-{% for review in reviews %}
-<div class="ticket">
-<p>{{ review.user }} a créé une critique le {{review.time_created}}</p>
-<p>{{ review.headline }}</p>
-<p>{{ review.body }}</p>
-</div>
-{%endfor%}
-
 
 {% endblock %}
