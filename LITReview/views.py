@@ -31,6 +31,12 @@ class Home(CustomLoginRequired, TemplateView):
 
         # Combiner les tickets et les critiques dans une seule liste
         posts = sorted(chain(tickets, reviews), key=lambda post: post.time_created, reverse=True)
-        context["posts"] = posts
 
+        # pour chaque ticket
+        for post in posts:
+            if post.content_type == "ticket":
+                # on récupère les utilisateurs qui ont commenté
+                post.users = Review.objects.filter(ticket=post).values_list("user", flat=True)
+
+        context["posts"] = posts
         return context

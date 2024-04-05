@@ -15,17 +15,24 @@
 {% for post in posts %}
     {% if post.content_type == 'ticket' %}
         <div class="ticket">
+
             {% if post.user == request.user %}
                 <p>Vous avez créé une demande de critique le {{post.time_created}}</p>
             {% else %}
             <p>{{ post.user }} a créé une demande de critique le {{post.time_created}}</p>
             {% endif %}
+
                 <h2>{{ post.title }}</h2>
                 <p>{{ post.description }}</p>
                 {% if post.image %}
                     <img class="image" src="{{ post.image.url }}" alt="image">
                 {% endif %}
-                <a class="custom-button" href="{% url 'review_create' pk=post.id%}">Créer une critique</a>
+                {% if request.user.id in post.users %}
+                    <p>Vous avez déjà répondu à cette demande de critique</p>
+                {% else %}
+                    <a class="custom-button" href="{% url 'review_create' pk=post.id %}">Créer une critique</a>
+                {% endif %}
+
             </div>
     {% endif %}
     {%if post.content_type == 'review' %}
