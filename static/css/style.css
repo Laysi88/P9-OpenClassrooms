@@ -250,3 +250,7 @@ form label {
 .image {
     max-width: 800px;
 }
+
+.etoile {
+    width: 20px;
+}

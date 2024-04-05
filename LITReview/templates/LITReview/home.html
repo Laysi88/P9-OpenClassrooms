@@ -1,4 +1,6 @@
 {% extends "base.html" %}
+{% load static %}
+
 
 
 {% block content %}
@@ -23,13 +25,57 @@
                 {% if post.image %}
                     <img class="image" src="{{ post.image.url }}" alt="image">
                 {% endif %}
+                <a class="custom-button" href="{% url 'review_create' pk=post.id%}">Créer une critique</a>
             </div>
     {% endif %}
     {%if post.content_type == 'review' %}
         <div class="ticket">
             <p>{{ post.user }} a créé une critique le {{post.time_created}}</p>
             <h2>{{ post.headline }}</h2>
+            <p>{{ post.body }}</p>
+            <div class="rating">
+            {% if  post.rating == 1 %}
+                <img class="etoile" src="{% static 'images/etoile1.png' %}" alt="note 1">
+                <img class="etoile" src="{% static 'images/etoile0.png' %}" alt="note 0">
+                <img class="etoile" src="{% static 'images/etoile0.png' %}" alt="note 0">
+                <img class="etoile" src="{% static 'images/etoile0.png' %}" alt="note 0">
+                <img class="etoile" src="{% static 'images/etoile0.png' %}" alt="note 0">
+            {% elif post.rating == 2 %}
+            <img class="etoile" src="{% static 'images/etoile1.png' %}" alt="note 1">
+            <img class="etoile" src="{% static 'images/etoile1.png' %}" alt="note 1">
+            <img class="etoile" src="{% static 'images/etoile0.png' %}" alt="note 0">
+            <img class="etoile" src="{% static 'images/etoile0.png' %}" alt="note 0">
+            <img class="etoile" src="{% static 'images/etoile0.png' %}" alt="note 0">
+            {% elif post.rating == 3 %}
+            <img class="etoile" src="{% static 'images/etoile1.png' %}" alt="note 1">
+            <img class="etoile" src="{% static 'images/etoile1.png' %}" alt="note 1">
+            <img class="etoile" src="{% static 'images/etoile1.png' %}" alt="note 1">
+            <img class="etoile" src="{% static 'images/etoile0.png' %}" alt="note 0">
+            <img class="etoile" src="{% static 'images/etoile0.png' %}" alt="note 0">
+            {% elif post.rating == 4 %}
+            <img class="etoile" src="{% static 'images/etoile1.png' %}" alt="note 1">
+            <img class="etoile" src="{% static 'images/etoile1.png' %}" alt="note 1">
+            <img class="etoile" src="{% static 'images/etoile1.png' %}" alt="note 1">
+            <img class="etoile" src="{% static 'images/etoile1.png' %}" alt="note 1">
+            <img class="etoile" src="{% static 'images/etoile0.png' %}" alt="note 0">
+            {% elif post.rating == 5 %}
+            <img class="etoile" src="{% static 'images/etoile1.png' %}" alt="note 1">
+            <img class="etoile" src="{% static 'images/etoile1.png' %}" alt="note 1">
+            <img class="etoile" src="{% static 'images/etoile1.png' %}" alt="note 1">
+            <img class="etoile" src="{% static 'images/etoile1.png' %}" alt="note 1">
+            <img class="etoile" src="{% static 'images/etoile1.png' %}" alt="note 1">
+            {% endif %}
             </div>
+        <div class="ticket">
+            <p>La critique a été faite pour la demande de critique suivante :</p>
+            <p>{{ post.ticket.user }} a créé une demande de critique le {{post.ticket.time_created}}</p>
+            <h2>{{ post.ticket.title }}</h2>
+            <p>{{ post.ticket.description }}</p>
+            {% if post.ticket.image %}
+                <img class="image" src="{{ post.ticket.image.url }}" alt="image">
+            {% endif %}
+        </div>
+        </div>
     {% endif %}
 {% endfor %}
 

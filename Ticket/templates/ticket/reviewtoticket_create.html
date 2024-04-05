@@ -2,4 +2,49 @@
 {% load static %}
 
 {% block content %}
+<div class="ticket">
+    <div class="row">
+        <p>Vous êtes en train de poster en réponse à </p>
+    </div>
+    <div class="row">
+        <p>{{ ticket.user }} a demndé une critique le {{ticket.time_created}}</p>
+    </div>
+    <div class="row">
+        <p>{{ ticket.title }}</p>
+    </div>
+    <div class="row">
+        <p>{{ ticket.description }}</p>
+    </div>
+    {% if ticket.image %}
+    <img class="image" src="{{ ticket.image.url }}" alt="image">
+    {% endif %}
+</div>
+
+    <form class="form" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="bloc_border">
+            <div class="row">
+                <p>Critique </p>
+            </div>
+            <div class="row">
+            {{ form.headline }}{{ form.headline.label_tag }}
+            </div>
+            <div class="row">
+            {{ form.body }}{{ form.body.label_tag }}
+            </div>
+            <div class="row">
+                <label for="id_rating">Note:</label>
+                {% for choice in form.rating %}
+                    <div class="radio">
+                        {{ choice.tag }} {{ choice.choice_label }}
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="row right">
+                <input type="submit" value="{{ submit }}" class="button">
+            </div>
+        </div>
+    </form>
+
+
 {% endblock content %}

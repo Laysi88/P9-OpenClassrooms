@@ -32,6 +32,5 @@ class Home(CustomLoginRequired, TemplateView):
         # Combiner les tickets et les critiques dans une seule liste
         posts = sorted(chain(tickets, reviews), key=lambda post: post.time_created, reverse=True)
         context["posts"] = posts
-        print(posts)
 
         return context
