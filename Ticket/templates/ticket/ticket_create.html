@@ -12,8 +12,17 @@
         {{form.description.label_tag}}{{form.description}}{{form.description.errors}}
     </div>
     <div class="row">
-        {{form.image.label_tag}}{{form.image}}{{form.image.errors}}
+        {{form.image.label_tag}}
     </div>
+    <div class="row update_image">
+        {% if ticket.image %}
+        <div>
+            <img class="image" src="{{ ticket.image.url }}" alt="image"></img>
+        </div>
+        {% endif %}
+        {{form.image}}{{form.image.errors}}
+    </div>
+
     <div class="row right">
         <input type="submit" value="{{submit}}" class="custom-button">
     </div>
