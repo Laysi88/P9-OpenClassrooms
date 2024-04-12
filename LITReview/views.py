@@ -1,4 +1,4 @@
-from CustomUser.utils import CustomLoginRequired
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView
 from Ticket.models import Ticket, Review
 from CustomUser.models import UserFollows
@@ -7,7 +7,7 @@ from itertools import chain
 from django.db.models import CharField, Value
 
 
-class Home(CustomLoginRequired, TemplateView):
+class Home(LoginRequiredMixin, TemplateView):
     template_name = "LITReview/home.html"
 
     def get_context_data(self, **kwargs):

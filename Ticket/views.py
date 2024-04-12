@@ -1,11 +1,9 @@
 from .models import Ticket, Review
-from CustomUser.models import CustomUser
 from django.views.generic import CreateView, UpdateView, DeleteView, TemplateView, FormView
 from .forms import TicketForm, ReviewToTIcketForm, ReviewForm
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-from django.db.models import Q
 
 
 @method_decorator(login_required, name="dispatch")
