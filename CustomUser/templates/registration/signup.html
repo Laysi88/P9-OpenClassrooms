@@ -15,21 +15,24 @@
 </header>
 
 <body>
-   <div class="create-form">
+    <div class="create-form">
 
         <form class="form" method="post">
             {% csrf_token %}
             <div class="text">Inscrivez-vous</div>
             <div class="text">
                 {{ form.username }}
+                <div class="center">{{ form.username.errors }}</div>
             </div>
         
             <div class="text">
                 {{ form.password1 }}
+                <div class="center">{{ form.password1.errors }}</div>
             </div>
             
             <div class="text">
                 {{ form.password2 }}
+                <div class="center">{{ form.password2.errors }}</div>
             </div>
 
             <div class="button-container">
