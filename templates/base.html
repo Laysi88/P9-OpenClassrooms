@@ -22,9 +22,10 @@
 </header>
 {% endblock header %}
 
+
+{% block nav %}
 <nav>
     <div class="nav-items">
-{% block nav %}
 <a href="{% url 'home' %}">Flux</a>
 <a href="{% url 'myposts' %}">Posts</a>
 <a href="{% url 'follows' %}">Abonnements</a>
