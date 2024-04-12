@@ -53,3 +53,8 @@ class UserFollowsForm(forms.ModelForm):
                     "placeholder"
                 ] = "Choisir un utilisateur à suivre ou arrêter de suivre"
             self.fields["followed_user"].queryset = queryset
+            self.fields["followed_user"].widget.attrs.update(
+                {
+                    "aria-label": "Utilisateur à suivre",
+                }
+            )
