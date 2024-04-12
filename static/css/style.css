@@ -14,6 +14,16 @@ nav {
     /* Ajouter une marge en bas */
 }
 
+.visually-hidden {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+
 .nav-items {
     margin-left: auto;
     margin-right: auto;
@@ -131,6 +141,16 @@ a:hover {
     color: blue;
     text-decoration: underline;
     text-underline-offset: 1.5px;
+}
+
+.align_center {
+    text-align: center;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    flex-direction: column;
 }
 
 form {

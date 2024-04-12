@@ -12,9 +12,25 @@ class CustomUserCreationForm(UserCreationForm):
         super().__init__(*args, **kwargs)
 
         # Ajouter des placeholders
-        self.fields["username"].widget.attrs["placeholder"] = "Nom d'utilisateur"
-        self.fields["password1"].widget.attrs["placeholder"] = "Mot de passe"
-        self.fields["password2"].widget.attrs["placeholder"] = "Confirmer le mot de passe"
+        self.fields["username"].widget.attrs.update(
+            {
+                "placeholder": "Nom d'utilisateur",
+                "aria-label": "Nom d'utilisateur",
+            }
+        )
+        self.fields["password1"].widget.attrs.update(
+            {
+                "placeholder": "Mot de passe",
+                "aria-label": "Mot de passe",
+            }
+        )
+
+        self.fields["password2"].widget.attrs.update(
+            {
+                "placeholder": "Confirmer le mot de passe",
+                "aria-label": "Confirmer le mot de passe",
+            }
+        )
 
 
 class UserFollowsForm(forms.ModelForm):

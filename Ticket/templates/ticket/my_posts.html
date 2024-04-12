@@ -13,7 +13,7 @@
     <h2>{{ ticket.title }}</h2>
     <p>{{ ticket.description }}</p>
     {% if ticket.image %}
-    <img class="image" src="{{ ticket.image.url }}" alt="image">
+    <img class="image" src="{{ ticket.image.url }}" alt="image de {{ ticket.title }} ">
     {% endif %}
 
     <div >
@@ -36,7 +36,7 @@
     <p>Publié par : Vous</p>
     <p>Description : {{review.ticket.description}}</p>
     {% if review.ticket.image %}
-    <img class="image" src="{{ review.ticket.image.url }}" alt="image">
+    <img class="image" src="{{ review.ticket.image.url }}" alt="image de {{review.ticket.title}}">
     {% endif %}
     </div>
     <div >

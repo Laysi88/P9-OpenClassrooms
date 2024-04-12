@@ -9,9 +9,12 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
+<title>LitReview</title>
+
 <header>
         <h1>Page de connexion</h1>
 </header>
+
 <body>
     <div class="container">
         <block class="create_user">
@@ -26,10 +29,12 @@
                 {% csrf_token %}
                 <div class="">
                     <div class="">
-                        <input type="text" name="username" placeholder="Nom d'utilisateur" />
+                        <input type="text" name="username" id="username" placeholder="Nom d'utilisateur" />
+                        <label for="username" class="visually-hidden">Nom d'utilisateur</label>
                     </div>
                     <div class="">
-                        <input type="password" name="password" placeholder="Mot De Passe" />
+                        <input type="password" name="password" id="password" placeholder="Mot De Passe" />
+                        <label for="password" class="visually-hidden">Mot De Passe</label>
                     </div>
                 </div>
                 <div class="button-container">

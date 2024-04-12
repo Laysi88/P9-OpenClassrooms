@@ -5,9 +5,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
+
+<title>LitReview</title>
 
 <header>
     <h1>Formulaire d'inscription</h1>
@@ -21,18 +22,16 @@
             <div class="text">Inscrivez-vous</div>
             <div class="text">
                 {{ form.username }}
-                <div class="center">{{ form.username.errors }}</div>
             </div>
         
             <div class="text">
                 {{ form.password1 }}
-                <div class="center">{{ form.password1.errors }}</div>
             </div>
-        
+            
             <div class="text">
                 {{ form.password2 }}
-                <div class="center">{{ form.password2.errors }}</div>
             </div>
+
             <div class="button-container">
                 <button class="button" type="submit">S'inscrire</button> 
             </div> 

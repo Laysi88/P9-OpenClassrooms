@@ -25,7 +25,7 @@
                 <h2>{{ post.title }}</h2>
                 <p>{{ post.description }}</p>
                 {% if post.image %}
-                    <img class="image" src="{{ post.image.url }}" alt="image">
+                    <img class="image" src="{{ post.image.url }}" alt="image de {{post.title}}">
                 {% endif %}
                 {% if request.user.id in post.users %}
                     <p>Vous avez déjà répondu à cette demande de critique</p>
@@ -79,7 +79,7 @@
             <h2>{{ post.ticket.title }}</h2>
             <p>{{ post.ticket.description }}</p>
             {% if post.ticket.image %}
-                <img class="image" src="{{ post.ticket.image.url }}" alt="image">
+                <img class="image" src="{{ post.ticket.image.url }}" alt="image de {{post.ticket.title}}">
             {% endif %}
         </div>
         </div>

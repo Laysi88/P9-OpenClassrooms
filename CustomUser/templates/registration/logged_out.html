@@ -9,14 +9,13 @@
 
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
-
-
-    {% block title %}
-    {% endblock title %}
-
 </head>
 
-<h3 class="row center">Vous etes maintenant déconnecté</h3>
+<title>LitReview</title>
 
-<h4 class="row center"><a class="button" href="{% url 'home' %}">Connectez-vous à nouveau</a></p>
+<header>
+    <h1>Vous etes maintenant déconnecté</h1>
+</header>
+
+
+    <a class="align_center"href="{% url 'login' %}">Connectez-vous à nouveau</a>
