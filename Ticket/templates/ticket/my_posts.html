@@ -30,7 +30,39 @@
     </div>
     <h2>{{ review.headline }}</h2>
     <p>{{ review.body }}</p>
-    <p>Note : {{ review.rating }}</p>
+    <div class="rating">
+        {% if  review.rating == 1 %}
+            <img class="etoile" src="{% static 'images/etoile1.png' %}" alt="note 1">
+            <img class="etoile" src="{% static 'images/etoile0.png' %}" alt="note 0">
+            <img class="etoile" src="{% static 'images/etoile0.png' %}" alt="note 0">
+            <img class="etoile" src="{% static 'images/etoile0.png' %}" alt="note 0">
+            <img class="etoile" src="{% static 'images/etoile0.png' %}" alt="note 0">
+        {% elif review.rating == 2 %}
+        <img class="etoile" src="{% static 'images/etoile1.png' %}" alt="note 1">
+        <img class="etoile" src="{% static 'images/etoile1.png' %}" alt="note 1">
+        <img class="etoile" src="{% static 'images/etoile0.png' %}" alt="note 0">
+        <img class="etoile" src="{% static 'images/etoile0.png' %}" alt="note 0">
+        <img class="etoile" src="{% static 'images/etoile0.png' %}" alt="note 0">
+        {% elif review.rating == 3 %}
+        <img class="etoile" src="{% static 'images/etoile1.png' %}" alt="note 1">
+        <img class="etoile" src="{% static 'images/etoile1.png' %}" alt="note 1">
+        <img class="etoile" src="{% static 'images/etoile1.png' %}" alt="note 1">
+        <img class="etoile" src="{% static 'images/etoile0.png' %}" alt="note 0">
+        <img class="etoile" src="{% static 'images/etoile0.png' %}" alt="note 0">
+        {% elif review.rating == 4 %}
+        <img class="etoile" src="{% static 'images/etoile1.png' %}" alt="note 1">
+        <img class="etoile" src="{% static 'images/etoile1.png' %}" alt="note 1">
+        <img class="etoile" src="{% static 'images/etoile1.png' %}" alt="note 1">
+        <img class="etoile" src="{% static 'images/etoile1.png' %}" alt="note 1">
+        <img class="etoile" src="{% static 'images/etoile0.png' %}" alt="note 0">
+        {% elif review.rating == 5 %}
+        <img class="etoile" src="{% static 'images/etoile1.png' %}" alt="note 1">
+        <img class="etoile" src="{% static 'images/etoile1.png' %}" alt="note 1">
+        <img class="etoile" src="{% static 'images/etoile1.png' %}" alt="note 1">
+        <img class="etoile" src="{% static 'images/etoile1.png' %}" alt="note 1">
+        <img class="etoile" src="{% static 'images/etoile1.png' %}" alt="note 1">
+        {% endif %}
+        </div>
     <div class="ticket">
     <p>Publié pour le ticket : {{ review.ticket.title }}</p>
     <p>Publié par : Vous</p>
