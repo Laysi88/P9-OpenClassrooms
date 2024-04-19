@@ -8,7 +8,7 @@
         {% csrf_token %}
         <p>Vous êtes sur le point de supprimer la critique suivante : </p>
         <p>Titre : {{ review.headline }}</p>
-        <p>Description : {{ ticket.body }}</p>
+        <p>Description : {{ review.body }}</p>
         <p> Etes vous sûr de vouloir supprimer cette critique ? </p>
         <div class="row right">
             <input type="submit" value="{{ submit}}" class="button">
